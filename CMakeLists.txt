@@ -40,23 +40,25 @@ add_executable(Interrupt_GPIOs Interrupt_GPIOs.c )
 pico_set_program_name(Interrupt_GPIOs "Interrupt_GPIOs")
 pico_set_program_version(Interrupt_GPIOs "0.1")
 
+# Generate PIO header
+pico_generate_pio_header(Interrupt_GPIOs ${CMAKE_CURRENT_LIST_DIR}/ws2812.pio  OUTPUT_DIR ${CMAKE_CURRENT_LIST_DIR}/include)
+
 # Modify the below lines to enable/disable output over UART/USB
 pico_enable_stdio_uart(Interrupt_GPIOs 0)
 pico_enable_stdio_usb(Interrupt_GPIOs 0)
 
 # Add the standard library to the build
 target_link_libraries(Interrupt_GPIOs
-        pico_stdlib)
+        PRIVATE
+        pico_stdlib
+        hardware_pio
+        hardware_clocks
+)
 
 # Add the standard include files to the build
 target_include_directories(Interrupt_GPIOs PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
 )
-
-# Add any user requested libraries
-target_link_libraries(Interrupt_GPIOs 
-        
-        )
 
 pico_add_extra_outputs(Interrupt_GPIOs)
 

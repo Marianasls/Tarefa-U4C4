@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build/Interrupt_GPIOs.uf2'
+elf = 'build/Interrupt_GPIOs.elf'
