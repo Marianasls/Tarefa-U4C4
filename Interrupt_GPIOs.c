@@ -13,7 +13,7 @@ const uint8_t led_b_pin = 12;
 const uint8_t led_g_pin = 11;    
 const uint8_t button_a = 5;        // Botão A = 5, Botão B = 6 , BotãoJoy = 22
 const uint8_t button_b = 6;        
-const uint8_t intensidade = 100;
+const uint8_t intensidade = 20;
 // Variável global para armazenar a cor (Entre 0 e 255 para intensidade)
 uint8_t led_r = 0; // Intensidade do vermelho
 uint8_t led_g = 0; // Intensidade do verde
